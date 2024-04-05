@@ -1,0 +1,24 @@
+/* 플레이어 말 위치*/
+.board{
+    position: relative;
+}
+.board .cells .cell {
+    position: relative;
+}
+
+.player{
+    display: block;
+}
+
+#guide #redPlayer{
+    position:absolute;
+    left:25%;
+    top:25%;
+    transform : translate(-50% ,-50%) ;
+}
+#guide #bluePlayer{
+    position:absolute;
+    left:75%;
+    top:25%;
+    transform : translate(-50% ,-50%) ;
+}

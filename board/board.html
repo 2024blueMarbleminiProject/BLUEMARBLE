@@ -6,29 +6,28 @@
   <title>board</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" href="board.css">
+  <link rel="stylesheet" href="../player/player.css">
 
   <script src="../player/player.js" defer></script>
 
 </head>
 <body>
 
- <!-- <div class = "boardBG"></div> -->
-
 
  <div class = "board">
   <div class = "cells">
 
-    <div class = "row">
-      <div class="cell Special btn" id="24"></div>
-      <div class="cell FirstLast btn" id="23"></div>
-      <div class="cell FirstLast btn" id="22"></div>
-      <div class="cell FirstLast btn" id="21"></div>
-      <div class="cell FirstLast btn" id="20"></div>
-      <div class="cell FirstLast btn" id="19"></div>
-      <div class="cell FirstLast Special btn" id="18"></div>
-    </div>
+  <div class = "row">
+    <div class="cell Special btn" id="24"></div>
+    <div class="cell FirstLast btn" id="23"></div>
+    <div class="cell FirstLast btn" id="22"></div>
+    <div class="cell FirstLast btn" id="21"></div>
+    <div class="cell FirstLast btn" id="20"></div>
+    <div class="cell FirstLast btn" id="19"></div>
+    <div class="cell FirstLast Special btn" id="18"></div>
+  </div>
 
-    <div class = "middle">
+  <div class = "middle">
     <div class="cell column btn" id="17"></div>
     <div class="cell"></div>
     <div class="cell"></div>
@@ -78,12 +77,16 @@
   </div>
 </div>
 
-<aside>
   <div id="guide">
-      <div id="redPlayer" class="player"></div>
-      <div id="bluePlayer" class="player"></div>
+      <div id="redPlayer" class="player">
+        <img src="../player/img/redPlayer.png" alt="플레이어1">
+      </div>
+      <div id="bluePlayer" class="player">
+        <img src="../player/img/bluePlayer.png" alt="플레이어2">
+      </div>
   </div>
-</aside>
+
+
 
 </body>
 </html>
