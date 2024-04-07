@@ -8,17 +8,24 @@
 
 .player{
     display: block;
+    position: absolute;
 }
 
-#guide #redPlayer{
-    position:absolute;
+.redPlayer{
     left:25%;
     top:25%;
     transform : translate(-50% ,-50%) ;
+    background-image:url('../player/img/redPlayer.png');
+    width:100px;
+    height:100px;
 }
-#guide #bluePlayer{
-    position:absolute;
+.bluePlayer{
     left:75%;
     top:25%;
     transform : translate(-50% ,-50%) ;
+    background-image:url('../player/img/bluePlayer.png');
+    width:100px;
+    height:100px;
 }
+
+
