@@ -9,9 +9,10 @@
 .player{
     display: block;
     position: absolute;
+    ;
 }
 
-.redPlayer{
+#redPlayer{
     left:25%;
     top:25%;
     transform : translate(-50% ,-50%) ;
@@ -19,9 +20,9 @@
     width:100px;
     height:100px;
 }
-.bluePlayer{
-    left:75%;
-    top:25%;
+#bluePlayer{
+    left:25%;
+    top:-10%;
     transform : translate(-50% ,-50%) ;
     background-image:url('../player/img/bluePlayer.png');
     width:100px;
@@ -29,3 +30,6 @@
 }
 
 
+#redPlayer, #bluePlayer {
+    transform: scale(0.3);
+}

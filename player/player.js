@@ -2,7 +2,12 @@
 
 const arr = []; //보드판 순서대로 배열 저장
 let currentPosition = 0; // 캐릭터 말의 초기 위치 (인덱스)
-
+const $diceBtn = document.querySelector(".diceBtn");
+const $rollDiceVideo = document.querySelector(".rollDiceVideo");
+const $player1 = document.getElementById("redPlayer")
+const $player2 = document.getElementById("bluePlayer")
+let $diceResult = 0;
+let $diceCount = 0;
 
 // 1~7 cell 배열에 저장
 const row1Elements = document.querySelectorAll('.row:last-child .cell');
@@ -32,10 +37,10 @@ for (const id of middle2Elements) {
     }
 }
 
-console.log(arr);
+// console.log(arr);
 
 
-//요소 추가=======================================================================
+//요소 추가=======================================================================혜린 주사위값
 //red, blue 초기 위치 0으로 설정
 let redPlayerPosition = 0; 
 let bluePlayerPosition = 0;
@@ -43,13 +48,25 @@ let bluePlayerPosition = 0;
 // 주사위를 굴리는 함수 정의
 function rollDice() {
     // 1에서 6 사이의 랜덤한 정수 생성
-    return Math.floor(Math.random() * 6) + 1;
+    $diceResult = Math.floor(Math.random() * 6) + 1;
+    return $diceResult;
 }
+
+// 주사위 버튼 클릭 이벤트
+$diceBtn.addEventListener("click", () => {
+    // 주사위 굴리는 함수 호출
+    rollDice();
+    // 주사위 던진 후 플레이어 이동 함수 호출
+    movePlayer($diceCount % 2 === 1 ? $player1 : $player2, $diceResult);
+    // 플레이어 턴 카운트 증가
+    $diceCount++;
+  });
 
 // 플레이어의 캐릭터 말을 이동시키는 함수 정의
 function movePlayer(player) {
     const diceRoll = rollDice(); // 주사위를 굴린 값
     console.log(`${player}의 주사위 값:`, diceRoll);
+    console.log(player);
 
     // 플레이어의 현재 위치에 따라 새로운 위치 계산
     let currentPosition = (player === 'redPlayer') ? redPlayerPosition : bluePlayerPosition;
@@ -70,19 +87,20 @@ function movePlayer(player) {
         bluePlayerPosition = currentPosition;
     }
 
-    console.log(`${player}의 이동 후 위치:`, currentPosition);
-    console.log(arr[currentPosition]); //현재 위치의 div✨
+    //console.log(`${player}의 이동 후 위치:`, currentPosition); ---------🐟
+    console.log(arr[currentPosition]); //현재 위치의 div✨ ---------🐟🐟🐟🐟🐟🐟
 }
 
 
 // 플레이어의 위치에 캐릭터 말을 업데이트하는 함수 정의
 function updatePlayerPosition(player, position) {
     // 이전 위치의 플레이어 캐릭터 말 제거
-    // const board = document.getElementById('board');
-    // const playerDiv = document.querySelector(`#${player}`);
-    // if (playerDiv) {
-    //     board.removeChild(playerDiv);
-    // }
+    const board = document.querySelector('.board'); // 보드판 요소 가져오기
+    const playerDiv = document.querySelector(`.${player}`); // 이전 위치의 플레이어 캐릭터 말 요소 가져오기
+    if (playerDiv) {
+        playerDiv.remove(); // 이전 위치의 플레이어 캐릭터 말 요소 삭제
+    }
+
 
     // 새로운 위치에 플레이어 캐릭터 말 추가
     const targetDiv = document.querySelector(`#${arr[currentPosition]}`);
@@ -100,48 +118,3 @@ movePlayer('redPlayer'); // 빨간 플레이어의 턴
 movePlayer('bluePlayer'); // 파란 플레이어의 턴
 
 
-
-
-
-
-
-
-
-
-
-// function movingBlue(){
-//     const $blueTeam = document.createElement('div');
-//     $blueTeam.classList.add('player');
-//     $blueTeam.id = 'bluePlayer';
-//     // arr[$blueTeam].appendChild($userSpan);
-// };
-// function movingRed(){
-//     const $blueTeam = document.createElement('div');
-//     $blueTeam.classList.add('player');
-//     $blueTeam.id = 'redPlayer';
-//     // arr[$blueTeam].appendChild($userSpan);
-// };
-// function removeRed() {
-//     for (let i of arr) {
-//         let $spans = [...i.children];// td안에 span 들을 배열로 만든게 $spans
-//         // console.log($spans);
-//         for (let d of $spans) {
-//             if (div.classList.contains('player') && t.classList.contains('redPlayer')) {
-//                 div.classList.remove('player');
-//                 div.classList.remove('redPlayer');
-//             }
-//         }
-//     }
-// }
-// function removeBlue() {
-//     for (let i of arr) {
-//         let $spans = [...i.children];// td안에 span 들을 배열로 만든게 $spans
-//         // console.log($spans);
-//         for (let d of $spans) {
-//             if (div.classList.contains('player') && t.classList.contains('bluePlayer')) {
-//                 div.classList.remove('player');
-//                 div.classList.remove('bluePlayer=');
-//             }
-//         }
-//     }
-// }

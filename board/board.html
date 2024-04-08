@@ -6,13 +6,13 @@
   <title>board</title>
   
 
-  <script src="../player/player.js" defer></script>
-
-
+  
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
   <link rel="stylesheet" href="board.css">
   <link rel="stylesheet" href="../player/player.css">
   
+  <script src="../player/player.js" defer></script>
 </head>
 <body>
 
@@ -75,19 +75,36 @@
     <div class="cell FirstLast btn" id="4"></div>
     <div class="cell FirstLast btn" id="3"></div>
     <div class="cell FirstLast btn" id="2"></div>
-    <div class="cell FirstLast Special btn" id="1"></div>
+    <div class="cell FirstLast Special btn" id="1">
+
+      <div id="guide">
+          <div id="redPlayer" class="player">
+            <img src="../player/img/redPlayer.png" alt="플레이어1">
+          </div>
+          <div id="bluePlayer" class="player">
+            <img src="../player/img/bluePlayer.png" alt="플레이어2">
+          </div>
+      </div> 
+
+    </div>
   </div>
   </div>
 </div>
 
-  <!-- <div id="guide">
-      <div id="redPlayer" class="player">
-        <img src="../player/img/redPlayer.png" alt="플레이어1">
-      </div>
-      <div id="bluePlayer" class="player">
-        <img src="../player/img/bluePlayer.png" alt="플레이어2">
-      </div>
-  </div> -->
+<!-- dice -->
+<section class="gamebox">
+  <button class="diceBtn">주사위 굴리기</button>
+  <div class="videobox">
+    <video
+      class="rollDiceVideo"
+      <!-- src="/dice/img/Dice.mp4" -->
+      muted
+      autoplay
+      loop
+    ></video>
+  </div>
+  </section>
+
 
 
 
