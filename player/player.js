@@ -1,7 +1,7 @@
 //👩‍💻 보드판 배열에 순서대로 저장하기=================================
 
-const arr = []; //보드판 순서대로 배열 저장
-let currentPosition = 0; // 캐릭터 말의 초기 위치 (인덱스)
+// const arr = []; //보드판 순서대로 배열 저장
+// let currentPosition = 0; // 캐릭터 말의 초기 위치 (인덱스)
 const $diceBtn = document.querySelector(".diceBtn");
 const $rollDiceVideo = document.querySelector(".rollDiceVideo");
 const $player1 = document.getElementById("redPlayer")
@@ -9,41 +9,41 @@ const $player2 = document.getElementById("bluePlayer")
 let $diceResult = 0;
 let $diceCount = 0;
 
-// 1~7 cell 배열에 저장
-const row1Elements = document.querySelectorAll('.row:last-child .cell');
-const row1Arr = Array.from(row1Elements).reverse(); // 첫 번째 .row 요소의 자식 요소를 역순으로 저장
-arr.push(...row1Arr);
+// // 1~7 cell 배열에 저장
+// const row1Elements = document.querySelectorAll('.row:last-child .cell');
+// const row1Arr = Array.from(row1Elements).reverse(); // 첫 번째 .row 요소의 자식 요소를 역순으로 저장
+// arr.push(...row1Arr);
 
-//9, 11, 13, 15, 17 cell 배열에 저장
-const middle1Elements = ['9', '11', '13', '15', '17'];
-for (const id of middle1Elements) {
-    const element = document.getElementById(id);
-    if (element) {
-        arr.push(element);
-    }
-}
+// //9, 11, 13, 15, 17 cell 배열에 저장
+// const middle1Elements = ['9', '11', '13', '15', '17'];
+// for (const id of middle1Elements) {
+//     const element = document.getElementById(id);
+//     if (element) {
+//         arr.push(element);
+//     }
+// }
 
-// 18~24 cell 배열에 저장
-const row2Elements = document.querySelectorAll('.row:first-child .cell');
-const row2Arr = Array.from(row2Elements); // 두 번째 .row 요소의 자식 요소를 역순으로 저장
-arr.push(...row2Arr);
+// // 18~24 cell 배열에 저장
+// const row2Elements = document.querySelectorAll('.row:first-child .cell');
+// const row2Arr = Array.from(row2Elements); // 두 번째 .row 요소의 자식 요소를 역순으로 저장
+// arr.push(...row2Arr);
 
-//16, 14, 12, 10, 8 cell 배열에 저장
-const middle2Elements = ['16', '14', '12', '10', '8'];
-for (const id of middle2Elements) {
-    const element = document.getElementById(id);
-    if (element) {
-        arr.push(element);
-    }
-}
+// //16, 14, 12, 10, 8 cell 배열에 저장
+// const middle2Elements = ['16', '14', '12', '10', '8'];
+// for (const id of middle2Elements) {
+//     const element = document.getElementById(id);
+//     if (element) {
+//         arr.push(element);
+//     }
+// }
 
 // console.log(arr);
 
 
 //요소 추가=======================================================================혜린 주사위값
 //red, blue 초기 위치 0으로 설정
-let redPlayerPosition = 0; 
-let bluePlayerPosition = 0;
+// let redPlayerPosition = 0; 
+// let bluePlayerPosition = 0;
 
 // 주사위를 굴리는 함수 정의
 function rollDice() {
