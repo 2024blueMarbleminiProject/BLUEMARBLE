@@ -1,112 +1,106 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>board</title>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>board</title>
 
-  
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-  <link rel="stylesheet" href="board.css">
-  <link rel="stylesheet" href="../player/player.css">
-  
-  <script src="../player/player.js" defer></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="stylesheet" href="board.css" />
+    <link rel="stylesheet" href="../player/player.css" />
+    <script src="../player/player.js" defer></script>
+  </head>
 
+  <body>
+    <div class="board">
+      <div class="cells">
+        <div class="row">
+          <div class="cell Special btn" id="13"></div>
+          <div class="cell FirstLast btn" id="14"></div>
+          <div class="cell FirstLast btn" id="15"></div>
+          <div class="cell FirstLast btn" id="16"></div>
+          <div class="cell FirstLast btn" id="17"></div>
+          <div class="cell FirstLast btn" id="18"></div>
+          <div class="cell FirstLast Special btn" id="19"></div>
+        </div>
 
- <div class = "board">
-  <div class = "cells">
-
-  <div class = "row">
-    <div class="cell Special btn" id="24"></div>
-    <div class="cell FirstLast btn" id="23"></div>
-    <div class="cell FirstLast btn" id="22"></div>
-    <div class="cell FirstLast btn" id="21"></div>
-    <div class="cell FirstLast btn" id="20"></div>
-    <div class="cell FirstLast btn" id="19"></div>
-    <div class="cell FirstLast Special btn" id="18"></div>
-  </div>
-
-  <div class = "middle">
-    <div class="cell column btn" id="17"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell column btn" id="16"></div>
-    <div class="cell column btn" id="15"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell column btn" id="14"></div>
-    <div class="cell column btn" id="13"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell"></div>
-    <div class="cell column btn" id="12"></div>
-    <div class="cell column ha btn" id="11"></div>
-    <div class="cell ha"></div>
-    <div class="cell ha"></div>
-    <div class="cell ha"></div>
-    <div class="cell ha"></div>
-    <div class="cell ha"></div>
-    <div class="cell column ha btn" id="10"></div>
-    <div class="cell column ha btn" id="9"></div>
-    <div class="cell ha"></div>
-    <div class="cell ha"></div>
-    <div class="cell ha"></div>
-    <div class="cell ha"></div>
-    <div class="cell ha" ></div>
-    <div class="cell column ha btn" id="8"></div>
-  </div>
-
-  <div class = "row">
-    <div class="cell FirstLast Special btn" id="7"></div>
-    <div class="cell FirstLast btn" id="6"></div>
-    <div class="cell FirstLast btn" id="5"></div>
-    <div class="cell FirstLast btn" id="4"></div>
-    <div class="cell FirstLast btn" id="3"></div>
-    <div class="cell FirstLast btn" id="2"></div>
-    <div class="cell FirstLast Special btn" id="1">
-
-      <div id="guide">
-          <div id="redPlayer" class="player">
-            <img src="../player/img/redPlayer.png" alt="플레이어1">
+        <div class="middle">
+          <div class="cell column btn" id="12"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell">
+            <div class="videobox">
+              <video
+                class="rollDiceVideo"
+                src="/player/img/Dice.mp4"
+                muted
+                autoplay
+                loop
+              ></video>
+            </div>
           </div>
-          <div id="bluePlayer" class="player">
-            <img src="../player/img/bluePlayer.png" alt="플레이어2">
-          </div>
-      </div> 
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell column btn" id="20"></div>
+          <div class="cell column btn" id="11"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell column btn" id="21"></div>
+          <div class="cell column btn" id="10"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell column btn" id="22"></div>
+          <div class="cell column ha btn" id="9"></div>
+          <div class="cell ha"></div>
+          <div class="cell ha"></div>
+          <div class="cell ha"></div>
+          <div class="cell ha"></div>
+          <div class="cell ha"></div>
+          <div class="cell column ha btn" id="23"></div>
+          <div class="cell column ha btn" id="8"></div>
+          <div class="cell ha"></div>
+          <div class="cell ha"></div>
+          <div class="cell ha"></div>
+          <div class="cell ha"></div>
+          <div class="cell ha"></div>
+          <div class="cell column ha btn" id="24"></div>
+        </div>
 
+        <div class="row">
+          <div class="cell FirstLast Special btn" id="7"></div>
+          <div class="cell FirstLast btn" id="6"></div>
+          <div class="cell FirstLast btn" id="5"></div>
+          <div class="cell FirstLast btn" id="4"></div>
+          <div class="cell FirstLast btn" id="3"></div>
+          <div class="cell FirstLast btn" id="2"></div>
+          <div class="cell FirstLast Special btn" id="1">
+            <img
+              id="redPlayer"
+              src="../player/img/redPlayer.png"
+              alt="플레이어1"
+            />
+            <img
+              id="bluePlayer"
+              src="../player/img/bluePlayer.png"
+              alt="플레이어2"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
-</div>
 
-<!-- dice -->
-<section class="gamebox">
-  <button class="diceBtn">주사위 굴리기</button>
-  <div class="videobox">
-    <video
-      class="rollDiceVideo"
-       src="/dice/img/Dice.mp4"
-      muted
-      autoplay
-      loop
-    ></video>
-  </div>
-  </section>
-
-
-
-
-</body>
+    <!-- dice -->
+    <section class="gamebox">
+      <button class="diceBtn">주사위 굴리기</button>
+    </section>
+  </body>
 </html>

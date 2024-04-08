@@ -6,30 +6,35 @@
     position: relative;
 }
 
-.player{
-    display: block;
-    position: absolute;
-    ;
-}
 
 #redPlayer{
     left:25%;
     top:25%;
     transform : translate(-50% ,-50%) ;
     background-image:url('../player/img/redPlayer.png');
+    position: absolute;
     width:100px;
     height:100px;
+    /* display: none; */
 }
 #bluePlayer{
     left:25%;
     top:-10%;
     transform : translate(-50% ,-50%) ;
     background-image:url('../player/img/bluePlayer.png');
+    position: absolute;
     width:100px;
     height:100px;
+    /* display: none; */
 }
 
 
 #redPlayer, #bluePlayer {
-    transform: scale(0.3);
+    transform: scale(0.5);
+    /* display: flex; */
+}
+
+.rollDiceVideo {
+    display: flex;
+    display: none;
 }
