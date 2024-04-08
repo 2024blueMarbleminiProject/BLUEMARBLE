@@ -1,17 +1,19 @@
 
 
 .board{
-  background: url(../board/img/board.jpg) no-repeat center/cover;
-  width:700px;
-  height: 700px;
-  margin: 0 auto;
-  margin-top: 30px;
-  display: block;
+  background: url(../img/board.jpg) no-repeat center/cover;
+  width: 800px;
+  height: 800px;
+  /* margin: 0 auto; */
+  margin-top: 20px;
+  /* display: block; */
+  /* border: 10px solid #000; */
+  border-radius: 20px;
 }
 
 
 .board .cells{
-  padding:17px;
+  padding:18px;
 }
 
 .board .cell{
@@ -24,22 +26,22 @@
 
 .board .row .cell{
   /* background: rgba(255,0,0,0.3); */
-  width:72px;
-  height: 135px;
+  width:82px;
+  height: 156px;
 }
 .board .row .Special{
- width:135px;
+ width:160px;
 }
 
 .board .cell{
-  width: 72px;
-  height:78px;
+  width: 83px;
+  height:87px;
 }
 .board .middle .column{
-  width: 135px;
+  width: 157px;
 }
 .board .middle .ha{
-  height:73px;
+  height:86px;
 }
 
 .board .btn:active{

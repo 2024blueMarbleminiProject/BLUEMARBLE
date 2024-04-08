@@ -1,0 +1,36 @@
+/* 보드판과 셀 스타일 */
+.board {
+    position: relative;
+}
+
+.board .cell {
+    position: relative;
+}
+
+/* 플레이어 말 위치 및 스타일 */
+.player {
+    display: block;
+    position: absolute;
+    width: 100px; /* 플레이어 말 너비 */
+    height: 100px; /* 플레이어 말 높이 */
+    transform: translate(-50%, -50%); /* 말의 중심을 말의 좌측 상단에서 중앙으로 이동 */
+}
+
+/* 빨간색 플레이어 말 */
+.player.redPlayer {
+    left: 5%; /* 보드판에서의 수평 위치 조정 */
+    top: -10%; /* 보드판에서의 수직 위치 조정 */
+    background: url('../player/img/redPlayer.png') no-repeat center/cover; /* 빨간색 플레이어 말 이미지 경로 */
+}
+
+/* 파란색 플레이어 말 */
+.player.bluePlayer {
+    right: 5%; /* 보드판에서의 수평 위치 조정 */
+    bottom: 5%; /* 보드판에서의 수직 위치 조정 */
+    background: url('../player/img/bluePlayer.png') no-repeat center/cover; /* 파란색 플레이어 말 이미지 경로 */
+}
+
+/* 플레이어 말 크기 조정 */
+.player {
+    transform: scale(0.5); /* 모든 플레이어 말의 크기 조정 */
+}
