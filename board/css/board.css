@@ -1,12 +1,14 @@
 
 
 .board{
-  background: url(../board/img/board.jpg) no-repeat center/cover;
-  width:700px;
+  background: url(../img/board.jpg) no-repeat center/cover;
+  width: 700px;
   height: 700px;
-  margin: 0 auto;
-  margin-top: 30px;
-  display: block;
+  /* margin: 0 auto; */
+  margin-top: 20px;
+  /* display: block; */
+  /* border: 10px solid #000; */
+  border-radius: 20px;
 }
 
 
@@ -17,7 +19,7 @@
 .board .cell{
   width:90px;
   height: 90px;
-  outline: 2px solid red;
+  /* outline: 2px solid red; */
   display: inline-flex;
   justify-content: center;
 }
