@@ -103,38 +103,54 @@ function movePlayer(player, diceRoll) {
   }
 
   // 우주여행 칸 이벤트
-  if (player === "redPlayer") {
-    if (currentPosition === 18) {
-      let spacePosition;
-      do {
-        spacePosition = +prompt(
-          "red player님\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
-        );
-        if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
-          alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
-        }
-      } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
+  // 우주여행 칸 이벤트
+if (player === "redPlayer") {
+  if (currentPosition === 18) {
+    let spacePosition;
+    do {
+      spacePosition = +prompt(
+        "red player님\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
+      );
+      if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
+        alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
+      }
+    } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
 
-      redPlayerPosition = spacePosition;
-      console.log("우주여행 Red");
-    }
-  } else {
-    if (currentPosition === 18) {
-      let spacePosition;
-      do {
-        spacePosition = +prompt(
-          "blue player님\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
-        );
-        if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
-          alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
-        }
-      } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
+    // 입력된 도시 위치에 따라 턴 수와 돈 조정
+    if (spacePosition >= 1 && spacePosition <= 17) {
+      // 1~17 사이의 도시 선택 시
+      redPlayerMoney.textContent = +redPlayerMoney.textContent + 200000;
+      redPlayerRound.textContent = +redPlayerRound.textContent + 1;
+    };
 
-      bluePlayerPosition = spacePosition;
-      console.log("우주여행 Blue");
-    }
+    // 플레이어 위치 업데이트
+    redPlayerPosition = spacePosition;
+    console.log("우주여행 Red");
   }
+} else {
+  if (currentPosition === 18) {
+    let spacePosition;
+    do {
+      spacePosition = +prompt(
+        "blue player님\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
+      );
+      if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
+        alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
+      }
+    } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
 
+    // 입력된 도시 위치에 따라 턴 수와 돈 조정
+    if (spacePosition >= 1 && spacePosition <= 17) {
+      // 1~17 사이의 도시 선택 시
+      bluePlayerMoney.textContent = +bluePlayerMoney.textContent + 200000; // 돈 +20만원
+      bluePlayerRound.textContent = +bluePlayerRound.textContent + 1; // 턴 수 +1
+    }
+
+    // 플레이어 위치 업데이트
+    bluePlayerPosition = spacePosition;
+    console.log("우주여행 Blue");
+  }
+}
   
 
   console.log(`${player}의 이동 후 위치:`, currentPosition);
