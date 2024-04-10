@@ -1,5 +1,4 @@
-// 보드판 배열에 순서대로 저장하기
-const arr = []; // 보드판 순서대로 배열 저장
+
 let currentPosition = 0; // 캐릭터 말의 초기 위치 (인덱스)
 const $diceBtn = document.querySelector(".diceBtn");
 const $player1 = document.getElementById("redPlayer");
@@ -14,6 +13,9 @@ let bluePlayerMoney = document.getElementById("B-money");
 let redPlayerRound = document.getElementById("A-round");
 let bluePlayerRound = document.getElementById("B-round");
 
+
+// 보드판 배열에 순서대로 저장하기
+const arr = []; // 보드판 순서대로 배열 저장
 // 1~7 cell 배열에 저장
 const row1Elements = document.querySelectorAll(".row:last-child .cell");
 const row1Arr = Array.from(row1Elements).reverse(); // 첫 번째 .row 요소의 자식 요소를 역순으로 저장
@@ -102,7 +104,6 @@ function movePlayer(player, diceRoll) {
     }
   }
 
-  // 우주여행 칸 이벤트
   // 우주여행 칸 이벤트
 if (player === "redPlayer") {
   if (currentPosition === 18) {

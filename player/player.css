@@ -21,6 +21,7 @@
     left: 5%; /* 보드판에서의 수평 위치 조정 */
     top: -10%; /* 보드판에서의 수직 위치 조정 */
     background: url('../player/img/redPlayer.png') no-repeat center/cover; /* 빨간색 플레이어 말 이미지 경로 */
+
 }
 
 /* 파란색 플레이어 말 */
@@ -33,4 +34,13 @@
 /* 플레이어 말 크기 조정 */
 .player {
     transform: scale(0.5); /* 모든 플레이어 말의 크기 조정 */
+    animation: blink 1.5s ease infinite; /* blink 애니메이션 적용 */
 }
+
+/* 플레이어 말 깜빡임 애니메이션 효과 */
+@keyframes blink {
+    0% { opacity: 1; top: 0;} /* 시작 시 보임 */
+    50% { opacity: 0.8; top:-2px;} /* 50% 시점에서 사라짐 */
+    100% { opacity: 1; top: 0;} /* 끝나면 다시 보임 */
+  }
+
