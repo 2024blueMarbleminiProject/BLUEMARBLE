@@ -4,76 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>board</title>
+  
+
+  
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-  <link rel="stylesheet" href="board.css">
+  <link rel="stylesheet" href="../board/css/board.css">
+  <link rel="stylesheet" href="../player/player.css">
+  <link rel="stylesheet" href="../board/css/boardmenu.css">
+  
+  <script src="../player/player.js" defer></script>
 </head>
 <body>
 
- <!-- <div class = "boardBG"></div> -->
 
+ <div class = "board">
+  <div class = "cells">
 
-  <div class = "board">
-    <div class = "cells">
+  <div class = "row">
+    <div class="cell Special btn" id="13"></div>
+    <div class="cell FirstLast btn" id="14"></div>
+    <div class="cell FirstLast btn" id="15"></div>
+    <div class="cell FirstLast btn" id="16"></div>
+    <div class="cell FirstLast btn" id="17"></div>
+    <div class="cell FirstLast btn" id="18"></div>
+    <div class="cell FirstLast Special btn" id="19"></div>
+  </div>
 
-      <div class = "row">
-        <div class="cell Special btn" id="1"></div>
-        <div class="cell FirstLast btn" id="2"></div>
-        <div class="cell FirstLast btn" id="3"></div>
-        <div class="cell FirstLast btn" id="4"></div>
-        <div class="cell FirstLast btn" id="5"></div>
-        <div class="cell FirstLast btn" id="6"></div>
-        <div class="cell FirstLast Special btn" id="7"></div>
-      </div>
+  <div class = "middle">
+    <div class="cell column btn" id="12"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell column btn" id="20"></div>
+    <div class="cell column btn" id="11"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell column btn" id="21"></div>
+    <div class="cell column btn" id="10"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell"></div>
+    <div class="cell column btn" id="22"></div>
+    <div class="cell column ha btn" id="9"></div>
+    <div class="cell ha"></div>
+    <div class="cell ha"></div>
+    <div class="cell ha"></div>
+    <div class="cell ha"></div>
+    <div class="cell ha"></div>
+    <div class="cell column ha btn" id="23"></div>
+    <div class="cell column ha btn" id="8"></div>
+    <div class="cell ha"></div>
+    <div class="cell ha"></div>
+    <div class="cell ha"></div>
+    <div class="cell ha"></div>
+    <div class="cell ha" ></div>
+    <div class="cell column ha btn" id="24"></div>
+  </div>
 
-      <div class = "middle">
-      <div class="cell column btn" id="8"></div>
-      <div class="cell" id="9"></div>
-      <div class="cell" id="10"></div>
-      <div class="cell" id="11"></div>
-      <div class="cell" id="12"></div>
-      <div class="cell" id="13"></div>
-      <div class="cell column btn" id="14"></div>
-      <div class="cell column btn" id="15"></div>
-      <div class="cell" id="16"></div>
-      <div class="cell" id="17"></div>
-      <div class="cell" id="18"></div>
-      <div class="cell" id="19"></div>
-      <div class="cell" id="20"></div>
-      <div class="cell column btn" id="21"></div>
-      <div class="cell column btn" id="22"></div>
-      <div class="cell" id="23"></div>
-      <div class="cell" id="24"></div>
-      <div class="cell" id="25"></div>
-      <div class="cell" id="26"></div>
-      <div class="cell" id="27"></div>
-      <div class="cell column btn" id="28"></div>
-      <div class="cell column ha btn" id="29"></div>
-      <div class="cell ha" id="30"></div>
-      <div class="cell ha" id="31"></div>
-      <div class="cell ha" id="32"></div>
-      <div class="cell ha" id="33"></div>
-      <div class="cell ha" id="34"></div>
-      <div class="cell column ha btn" id="35"></div>
-      <div class="cell column ha btn" id="36"></div>
-      <div class="cell ha" id="37"></div>
-      <div class="cell ha" id="38"></div>
-      <div class="cell ha" id="39"></div>
-      <div class="cell ha" id="40"></div>
-      <div class="cell ha" id="41"></div>
-      <div class="cell column ha btn" id="42"></div>
-    </div>
+  <div class = "row">
+    <div class="cell FirstLast Special btn" id="7"></div>
+    <div class="cell FirstLast btn" id="6"></div>
+    <div class="cell FirstLast btn" id="5"></div>
+    <div class="cell FirstLast btn" id="4"></div>
+    <div class="cell FirstLast btn" id="3"></div>
+    <div class="cell FirstLast btn" id="2"></div>
+    <div class="cell FirstLast Special btn" id="1">
 
-    <div class = "row">
-      <div class="cell FirstLast Special btn" id="43"></div>
-      <div class="cell FirstLast btn" id="44"></div>
-      <div class="cell FirstLast btn" id="45"></div>
-      <div class="cell FirstLast btn" id="46"></div>
-      <div class="cell FirstLast btn" id="47"></div>
-      <div class="cell FirstLast btn" id="48"></div>
-      <div class="cell FirstLast Special btn" id="49"></div>
-    </div>
+      <!-- <div id="guide">
+          <div id="redPlayer" class="player">
+            <img src="../player/img/redPlayer.png" alt="플레이어1">
+          </div>
+          <div id="bluePlayer" class="player">
+            <img src="../player/img/bluePlayer.png" alt="플레이어2">
+          </div>
+      </div>  -->
+
     </div>
   </div>
+  </div>
+</div>
+
+<!-- dice -->
+<!-- <section class="gamebox">
+  <button class="diceBtn">주사위 굴리기</button>
+  <div class="videobox">
+    <video
+      class="rollDiceVideo"
+      src="/dice/img/Dice.mp4"
+      muted
+      autoplay
+      loop
+    ></video>
+  </div>
+  </section> -->
+
+   <!-- 게임 정보 판 -->
+   <section id="title">
+    <h1>부 루 🌎 마 블</h1>
+    <!-- 플레이어 정보(돈, 왕복횟수) -->
+    <section class="player-info">
+      <div class="playerA">
+        <h2>🚗 플레이어 1</h2>
+        <hr> 
+        <ul>
+          <li>💸 : <span id="A-money">2000000</span> 원</li>
+          <li>🔁 : <span id="A-round">0</span> 바퀴</li>
+        </ul>
+      </div>
+
+      <div class="playerB">
+        <h3>🚘 플레이어 2</h3>
+        <hr>
+        <ul>
+          <li>💸 : <span id="B-money">2000000</span> 원</li>
+          <li>🔁 : <span id="B-round">0</span> 바퀴</li>
+        </ul>
+      </div>
+    </section>
+    
+
+    <!-- 주사위 굴리기 버튼, 굴려지는 이미지 -->
+    <section class="dice">
+      <div class="dice-image"></div>
+      <button class="diceBtn" type="button">🎲 주사위 던지기 🎲</button>
+    </section>
+   </section>
+
+
+
+
 
 
 </body>

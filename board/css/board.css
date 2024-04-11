@@ -1,0 +1,49 @@
+
+
+.board{
+  background: url(../img/board.jpg) no-repeat center/cover;
+  width: 800px;
+  height: 800px;
+  /* margin: 0 auto; */
+  margin-top: 20px;
+  /* display: block; */
+  /* border: 10px solid #000; */
+  border-radius: 20px;
+}
+
+
+.board .cells{
+  padding:18px;
+}
+
+.board .cell{
+  width:90px;
+  height: 90px;
+  /* outline: 2px solid red; */
+  display: inline-flex;
+  justify-content: center;
+}
+
+.board .row .cell{
+  /* background: rgba(255,0,0,0.3); */
+  width:82px;
+  height: 156px;
+}
+.board .row .Special{
+ width:160px;
+}
+
+.board .cell{
+  width: 83px;
+  height:87px;
+}
+.board .middle .column{
+  width: 157px;
+}
+.board .middle .ha{
+  height:86px;
+}
+
+.board .btn:active{
+  background: rgba(0,0,0,0.1);
+}

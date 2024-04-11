@@ -1,0 +1,70 @@
+body {
+  background: url(../img/bg1.jpg) no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+
+/* 메뉴판 css */
+#title {
+  /* border: 10px solid #000; */
+  height: 800px;
+  width: 350px;
+  margin-top: 20px;
+  text-align: center;
+  background: greenyellow;
+  border-radius: 20px;
+}
+
+
+/* 메뉴판 제목 */
+#title h1 {
+  padding: 40px;
+  font-size: 30px;
+  color: skyblue;
+  font-weight: 600;
+}
+
+#title image {
+  width: 10px;
+  height: 10px;
+}
+
+#title span {
+  font-size: 20px;
+}
+
+
+/* 메뉴판 - 플레이어 정보 */
+#title div.playerA {
+  background: yellow;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+#title div.playerB {
+  margin-top: 50px;
+  background: orange;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+
+/* 메뉴판 - 버튼 */
+section.dice div.dice-image {
+  border: 1px solid #000;
+  height: 200px;
+  border-radius: 20px;
+  margin-top: 50px;
+  background: white;
+}
+
+section.dice button {
+  font-size: 25px;
+}
+
+
