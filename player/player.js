@@ -96,12 +96,16 @@ function movePlayer(player, diceRoll) {
     currentPosition = newPosition % arr.length;
     if (player === "redPlayer") {
       console.log(`${player}의 돈을 올리세요`);
-      alert("red player님\n월급 200,000원 축하드립니다!!");
+      setTimeout(function () {
+        alert("red player님\n월급 200,000원 축하드립니다!!");
+      }, 2000);
       redPlayerMoney.textContent = +redPlayerMoney.textContent + 200000;
       redPlayerRound.textContent = +redPlayerRound.textContent + 1;
     } else {
       console.log(`${player}의 돈을 올리세요`);
-      alert("blue player님\n월급 200,000원 축하드립니다!!");
+      setTimeout(function () {
+        alert("blue player님\n월급 200,000원 축하드립니다!!");
+      }, 2000);
       bluePlayerMoney.textContent = +bluePlayerMoney.textContent + 200000;
       bluePlayerRound.textContent = +bluePlayerRound.textContent + 1;
     }
@@ -119,14 +123,19 @@ function movePlayer(player, diceRoll) {
   // 사회복지기금 칸 이벤트
   if (player === "redPlayer") {
     if (currentPosition === 12) {
-      alert("red player님\n기부 감사합니다ㅋ");
+      setTimeout(function () {
+        alert("red player님\n기부 감사합니다ㅋ");
+      }, 2000);
+
       redPlayerMoney.textContent = +redPlayerMoney.textContent - 500000;
       console.log("사회복지기금 Red");
     }
   } else {
     if (currentPosition === 12) {
       bluePlayerMoney.textContent = +bluePlayerMoney.textContent - 500000;
-      alert("blue player님\n기부 감사합니다ㅋ");
+      setTimeout(function () {
+        alert("blue player님\n기부 감사합니다ㅋ");
+      }, 2000);
       console.log("사회복지기금 Blue");
     }
   }
@@ -212,12 +221,12 @@ function updatePlayerPosition(player) {
 
 function showDiceImg(diceResult) {
   if (($diceImg.style.backgroundImage = "none")) {
-    $diceImg.style.backgroundImage = "url(/board/img/i016280274048.gif)";
+    $diceImg.style.backgroundImage = "url(/board/img/dice.gif)";
   }
 
   setTimeout(function () {
     $diceImg.style.backgroundImage = "none";
-  }, 1200);
+  }, 1000);
 
   setTimeout(function () {
     if (diceResult === 1) {
@@ -237,7 +246,7 @@ function showDiceImg(diceResult) {
 
   setTimeout(function () {
     $diceImg.style.backgroundImage = "none";
-  }, 1500);
+  }, 2000);
 }
 function showPlayerInfo() {
   $diceImg.textContent = `현재 플레이어: ${currentPlayer}`;
