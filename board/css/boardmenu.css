@@ -1,3 +1,5 @@
+@import url(/board/css/boarddice.css);
+
 body {
   background: url(../img/bg1.jpg) no-repeat;
   background-size: cover;
@@ -61,7 +63,12 @@ section.dice div.dice-image {
   border-radius: 20px;
   margin-top: 50px;
   background: white;
+  background-image: none;
+  /* background-image: url(/board/img/1.png); */
+  background-size: cover;
+  background-position: center;
 }
+
 
 section.dice button {
   font-size: 25px;
