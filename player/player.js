@@ -220,7 +220,7 @@ function updatePlayerPosition(player) {
 
 function showDiceImg(diceResult) {
   if (($diceImg.style.backgroundImage = "none")) {
-    $diceImg.style.backgroundImage = "url(/player/img/dice.gif)";
+    $diceImg.style.backgroundImage = "url(https://upload3.inven.co.kr/upload/2022/01/28/bbs/i016280274048.gif)";
   }
 
   setTimeout(function () {
@@ -229,17 +229,17 @@ function showDiceImg(diceResult) {
 
   setTimeout(function () {
     if (diceResult === 1) {
-      $diceImg.style.backgroundImage = "url(/player/img/1.png)";
+      $diceImg.style.backgroundImage = "url(https://cdn.icon-icons.com/icons2/2248/PNG/512/numeric_icon_136351.png)";
     } else if (diceResult === 2) {
-      $diceImg.style.backgroundImage = "url(/player/img/2.png)";
+      $diceImg.style.backgroundImage = "url(https://cdn.icon-icons.com/icons2/2248/PNG/512/numeric_icon_136350.png)";
     } else if (diceResult === 3) {
-      $diceImg.style.backgroundImage = "url(/player/img/3.png)";
+      $diceImg.style.backgroundImage = "url(https://cdn.icon-icons.com/icons2/2248/PNG/512/numeric_icon_137352.png)";
     } else if (diceResult === 4) {
-      $diceImg.style.backgroundImage = "url(/player/img/4.png)";
+      $diceImg.style.backgroundImage = "url(https://cdn.icon-icons.com/icons2/2248/PNG/512/numeric_icon_138340.png)";
     } else if (diceResult === 5) {
-      $diceImg.style.backgroundImage = "url(/player/img/5.png)";
+      $diceImg.style.backgroundImage = "url(https://cdn.icon-icons.com/icons2/2248/PNG/512/numeric_icon_138339.png)";
     } else if (diceResult === 6) {
-      $diceImg.style.backgroundImage = "url(/player/img/6.png)";
+      $diceImg.style.backgroundImage = "url(https://cdn.icon-icons.com/icons2/2248/PNG/512/numeric_icon_138338.png)";
     }
   }, 1300);
 
