@@ -1,4 +1,8 @@
-
+body{
+  background-color: brown;
+  width:100%;
+  height: 100%;
+}
 
 .board{
   background: url(../img/board.jpg) no-repeat center/cover;
@@ -47,14 +51,4 @@
 .board .btn:active{
   background: rgba(0,0,0,0.1);
 }
-/* .redPlayer{
-  background-image: url(/board/img/free-icon-residential-2801677.png);
-  width: 10px;
-  height: 10px;
-}
-.bluePlayer{
-  background-image: url(/board/img/free-icon-sweet-home-3156242.png);
-  width: 10px;
-  height: 10px;
-}
- */
+

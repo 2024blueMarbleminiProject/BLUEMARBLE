@@ -67,12 +67,12 @@ function movePlayer(player, diceRoll) {
     currentPosition = newPosition % arr.length;
     if (player === "redPlayer") {
       console.log(`${player}의 돈을 올리세요`);
-      alert("red player님\n월급 200,000원 축하드립니다!!");
+      alert("🚗RED PLAYER님\n월급 200,000원 축하드립니다!!");
       redPlayerMoney.textContent = +redPlayerMoney.textContent + 200000;
       redPlayerRound.textContent = +redPlayerRound.textContent + 1;
     } else {
       console.log(`${player}의 돈을 올리세요`);
-      alert("blue player님\n월급 200,000원 축하드립니다!!");
+      alert("🚙BLUE PLAYER님\n월급 200,000원 축하드립니다!!");
       bluePlayerMoney.textContent = +bluePlayerMoney.textContent + 200000;
       bluePlayerRound.textContent = +bluePlayerRound.textContent + 1;
     }
@@ -90,57 +90,73 @@ function movePlayer(player, diceRoll) {
   // 사회복지기금 칸 이벤트
   if (player === "redPlayer") {
     if (currentPosition === 12) {
-      alert("red player님\n기부 감사합니다ㅋ");
+      alert("🚗RED PLAYER님\n 50만원 기부 감사합니다🤗");
       redPlayerMoney.textContent = +redPlayerMoney.textContent - 500000;
       console.log("사회복지기금 Red");
     }
   } else {
     if (currentPosition === 12) {
       bluePlayerMoney.textContent = +bluePlayerMoney.textContent - 500000;
-      alert("blue player님\n기부 감사합니다ㅋ");
+      alert("🚙BLUE PLAYER님\n 50만원 기부 감사합니다🤗");
       console.log("사회복지기금 Blue");
     }
   }
 
-  // 우주여행 칸 이벤트
-  if (player === "redPlayer") {
-    if (currentPosition === 18) {
-      let spacePosition;
-      do {
-        spacePosition = +prompt(
-          "red player님\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
-        );
-        if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
-          alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
-        }
-      } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
+   // 우주여행 칸 이벤트
+if (player === "redPlayer") {
+  if (currentPosition === 18) {
+    let spacePosition;
+    do {
+      spacePosition = +prompt(
+        "🚗RED PLAYER님!\n이동하고 싶은 도시의 숫자를 입력해주세요!! (출발부터 0~23)"
+      );
+      if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
+        alert("가고싶은 도시의 숫자를 0~23까지의 숫자로 선택하세요");
+      }
+    } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
 
-      redPlayerPosition = spacePosition;
-      console.log("우주여행 Red");
-    }
-  } else {
-    if (currentPosition === 18) {
-      let spacePosition;
-      do {
-        spacePosition = +prompt(
-          "blue player님\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
-        );
-        if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
-          alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
-        }
-      } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
+    // 입력된 도시 위치에 따라 턴 수와 돈 조정
+    if (spacePosition >= 1 && spacePosition <= 17) {
+      // 1~17 사이의 도시 선택 시
+      redPlayerMoney.textContent = +redPlayerMoney.textContent + 200000;
+      redPlayerRound.textContent = +redPlayerRound.textContent + 1;
+      alert("🚗RED PLAYER님\n월급 200,000원 축하드립니다!!");
+    };
 
-      bluePlayerPosition = spacePosition;
-      console.log("우주여행 Blue");
-    }
+    // 플레이어 위치 업데이트
+    redPlayerPosition = spacePosition;
+    console.log("우주여행 Red");
   }
+} else {
+  if (currentPosition === 18) {
+    let spacePosition;
+    do {
+      spacePosition = +prompt(
+        "🚙BLUE PLAYER\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
+      );
+      if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
+        alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
+      }
+    } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
 
+    // 입력된 도시 위치에 따라 턴 수와 돈 조정
+    if (spacePosition >= 1 && spacePosition <= 17) {
+      // 1~17 사이의 도시 선택 시
+      bluePlayerMoney.textContent = +bluePlayerMoney.textContent + 200000; // 돈 +20만원
+      bluePlayerRound.textContent = +bluePlayerRound.textContent + 1; // 턴 수 +1
+      alert("🚙BLUE PLAYER님\n월급 200,000원 축하드립니다!!");
+    }
+
+    // 플레이어 위치 업데이트
+    bluePlayerPosition = spacePosition;
+    console.log("우주여행 Blue");
+  }
+}
   
 
   console.log(`${player}의 이동 후 위치:`, currentPosition);
   console.log(arr[currentPosition]); //------------------------------------🐟
 }
-
 // 플레이어의 위치에 캐릭터 말을 업데이트하는 함수 정의
 function updatePlayerPosition(player) {
   // 이전 위치의 플레이어 캐릭터 말 제거
@@ -167,6 +183,42 @@ function updatePlayerPosition(player) {
 }
 
 
+function showDiceImg(diceResult) {
+  if (($diceImg.style.backgroundImage = "none")) {
+    $diceImg.style.backgroundImage = "url(../board/img/dice.gif)";
+  }
+
+  setTimeout(function () {
+    $diceImg.style.backgroundImage = "none";
+  }, 1200);
+
+  setTimeout(function () {
+    if (diceResult === 1) {
+      $diceImg.style.backgroundImage = "url(../board/img/1.png)";
+    } else if (diceResult === 2) {
+      $diceImg.style.backgroundImage = "url(../board/img/2.png)";
+    } else if (diceResult === 3) {
+      $diceImg.style.backgroundImage = "url(../board/img/3.png)";
+    } else if (diceResult === 4) {
+      $diceImg.style.backgroundImage = "url(../board/img/4.png)";
+    } else if (diceResult === 5) {
+      $diceImg.style.backgroundImage = "url(../board/img/5.png)";
+    } else if (diceResult === 6) {
+      $diceImg.style.backgroundImage = "url(../board/img/6.png)";
+    }
+  }, 1300);
+
+  setTimeout(function () {
+    $diceImg.style.backgroundImage = "none";
+  }, 1500);
+}
+function showPlayerInfo() {
+
+  setTimeout(function () {
+    $diceImg.textContent = "";
+  }, 2000);
+}
+
 // 주사위 버튼 클릭 이벤트
 $diceBtn.addEventListener("click", (event) => {
   // 주사위 굴리기
@@ -186,7 +238,18 @@ $diceBtn.addEventListener("click", (event) => {
   currentPlayer = currentPlayer === "redPlayer" ? "bluePlayer" : "redPlayer"; // 플레이어 턴 전환
 
   // 현재 플레이어 출력
+  const currentPlayerDisplay = document.getElementById("currentPlayerDisplay");
+  currentPlayerDisplay.textContent = ` ${currentPlayer}님의 차례입니다`;
   console.log(`현재 플레이어: ${currentPlayer}`);
+
+  // 플레이어 말 이미지 설정
+  const playerTokenImg = document.getElementById("playerToken");
+  if (currentPlayer === "redPlayer") {
+    playerTokenImg.src = "../player/img/redPlayer.png"; // 빨간 말 이미지 경로 설정
+  } else {
+    playerTokenImg.src = "../player/img/bluePlayer.png"; // 파란 말 이미지 경로 설정
+  }
+
 });
 
 // console.log(arr);
@@ -238,7 +301,7 @@ function askToBuyLand(player, position) {
             alert(`${cellID} 칸을 구매하였습니다.`);
             
           } else {
-            alert("소지금이 부족합니다.");
+            alert("💸소지금이 부족합니다.💸");
             return; // 구매 실패 시 함수 종료
           }
         } else {
@@ -249,7 +312,7 @@ function askToBuyLand(player, position) {
             alert(`${cellID} 칸을 구매하였습니다.`);
             // 땅 구매후 아이콘만들기
           } else {
-            alert("소지금이 부족합니다.");
+            alert("💸소지금이 부족합니다.💸");
             return; // 구매 실패 시 함수 종료
           }
         }
@@ -281,7 +344,7 @@ function payToll(player, position) {
         bluePlayerMoney.textContent = +bluePlayerMoney.textContent - toll;
         redPlayerMoney.textContent = +redPlayerMoney.textContent + toll;
       }
-      alert(`${player}님, ${landOwner}님의 땅에 들어가 통행료 ${toll}원을 지불하였습니다.`);
+      alert(`${player}님, ${landOwner}님의 땅에 들어가 💰통행료 ${toll}원💰을 지불하였습니다.`);
     }
   }
 }
@@ -292,7 +355,7 @@ function checkGameOver() {
   // 빨간 플레이어의 소지금 확인
   const redMoney = +redPlayerMoney.textContent;
   if (redMoney <= 0) {
-    alert("빨간 플레이어의 소지금이 0원 이하로 떨어졌습니다. 파란 플레이어가 승리했습니다!");
+    alert("🚗RED PLAYER의 소지금이 0원 이하로 떨어졌습니다.\n🚙BLUE PLAYER가 승리했습니다!");
     const playAgain = confirm("한 판 더 하시겠습니까?");
     if (playAgain) {
       resetGame();
@@ -307,7 +370,7 @@ function checkGameOver() {
   // 파란 플레이어의 소지금 확인
   const blueMoney = +bluePlayerMoney.textContent;
   if (blueMoney <= 0) {
-    alert("파란 플레이어의 소지금이 0원 이하로 떨어졌습니다. 빨간 플레이어가 승리했습니다!");
+    alert("🚙BLUE PLAYER의 소지금이 0원 이하로 떨어졌습니다. \n🚗RED PLAYER가 승리했습니다!");
     const playAgain = confirm("한 판 더 하시겠습니까?");
     if (playAgain) {
       resetGame();
