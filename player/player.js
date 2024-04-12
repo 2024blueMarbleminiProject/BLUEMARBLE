@@ -4,6 +4,7 @@ let currentPosition = 0; // 캐릭터 말의 초기 위치 (인덱스)
 const $diceBtn = document.querySelector(".diceBtn");
 const $player1 = document.getElementById("redPlayer");
 const $player2 = document.getElementById("bluePlayer");
+const $diceImg = document.querySelector(".dice-image");
 let currentPlayer = "redPlayer"; // 초기 턴은 빨간 플레이어로 설정
 let redPlayerPosition = 0; // 빨간 플레이어의 초기 위치
 let bluePlayerPosition = 0; // 파란 플레이어의 초기 위치
@@ -42,6 +43,34 @@ for (const id of middle2Elements) {
   }
 }
 
+//땅에 대한 정보 객체로 정리한 것. 해당 번호는 셀의 id값과 동일함. 이걸 이용해야할 듯----
+const lands = {
+  1: { name: "타이베이", price: 50000, owner: null },
+  2: { name: "베이징", price: 80000, owner: null },
+  3: { name: "마닐라", price: 80000, owner: null },
+  4: { name: "제주", price: 200000, owner: null },
+  5: { name: "싱가포르", price: 100000, owner: null },
+  6: { name: "무인도", price: 0 },
+  7: { name: "아테네", price: 140000, owner: null },
+  8: { name: "코펜하겐", price: 160000, owner: null },
+  9: { name: "스톡홀롬", price: 160000, owner: null },
+  10: { name: "베를린", price: 180000, owner: null },
+  11: { name: "오타와", price: 200000, owner: null },
+  12: { name: "사회복지기금 기부", price: 0 },
+  13: { name: "부에노스아이레스", price: 220000, owner: null },
+  14: { name: "상파울루", price: 240000, owner: null },
+  15: { name: "시드니", price: 240000, owner: null },
+  16: { name: "부산", price: 500000, owner: null },
+  17: { name: "하와이", price: 260000, owner: null },
+  18: { name: "우주여행", price: 200000 }, //이것도 돈이 있어야 할 수 있게 일단 해둠. 20만원!
+  19: { name: "도쿄", price: 300000, owner: null },
+  20: { name: "컬럼비아호", price: 450000, owner: null },
+  21: { name: "파리", price: 320000, owner: null },
+  22: { name: "뉴욕", price: 350000, owner: null },
+  23: { name: "서울", price: 1000000, owner: null },
+  24: { name: "출발", price: 0 },
+};
+
 // 주사위를 굴리는 함수 정의
 function rollDice() {
   // 1에서 6 사이의 랜덤한 정수 생성
@@ -67,12 +96,16 @@ function movePlayer(player, diceRoll) {
     currentPosition = newPosition % arr.length;
     if (player === "redPlayer") {
       console.log(`${player}의 돈을 올리세요`);
-      alert("🚗RED PLAYER님\n월급 200,000원 축하드립니다!!");
+      setTimeout(function () {
+        alert("🚗RED PLAYER님\n월급 200,000원 축하드립니다!!");
+      }, 2000);
       redPlayerMoney.textContent = +redPlayerMoney.textContent + 200000;
       redPlayerRound.textContent = +redPlayerRound.textContent + 1;
     } else {
       console.log(`${player}의 돈을 올리세요`);
-      alert("🚙BLUE PLAYER님\n월급 200,000원 축하드립니다!!");
+      setTimeout(function () {
+        alert("🚙BLUE PLAYER님\n월급 200,000원 축하드립니다!!");
+      }, 2000);
       bluePlayerMoney.textContent = +bluePlayerMoney.textContent + 200000;
       bluePlayerRound.textContent = +bluePlayerRound.textContent + 1;
     }
@@ -90,67 +123,70 @@ function movePlayer(player, diceRoll) {
   // 사회복지기금 칸 이벤트
   if (player === "redPlayer") {
     if (currentPosition === 12) {
-      alert("🚗RED PLAYER님\n 50만원 기부 감사합니다🤗");
+      setTimeout(function () {
+        alert("🚗RED PLAYER님\n 50만원 기부 감사합니다🤗");
+      }, 2000);
       redPlayerMoney.textContent = +redPlayerMoney.textContent - 500000;
       console.log("사회복지기금 Red");
     }
   } else {
     if (currentPosition === 12) {
+      setTimeout(function () {
+        alert("🚙BLUE PLAYER님\n 50만원 기부 감사합니다🤗");
+      }, 2000);
       bluePlayerMoney.textContent = +bluePlayerMoney.textContent - 500000;
-      alert("🚙BLUE PLAYER님\n 50만원 기부 감사합니다🤗");
       console.log("사회복지기금 Blue");
     }
   }
 
-   // 우주여행 칸 이벤트
-if (player === "redPlayer") {
-  if (currentPosition === 18) {
-    let spacePosition;
-    do {
-      spacePosition = +prompt(
-        "🚗RED PLAYER님!\n이동하고 싶은 도시의 숫자를 입력해주세요!! (출발부터 0~23)"
-      );
-      if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
-        alert("가고싶은 도시의 숫자를 0~23까지의 숫자로 선택하세요");
+  // 우주여행 칸 이벤트
+  if (player === "redPlayer") {
+    if (currentPosition === 18) {
+      let spacePosition;
+      do {
+        spacePosition = +prompt(
+          "🚗RED PLAYER님!\n이동하고 싶은 도시의 숫자를 입력해주세요!! (출발부터 0~23)"
+        );
+        if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
+          alert("가고싶은 도시의 숫자를 0~23까지의 숫자로 선택하세요");
+        }
+      } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
+
+      // 입력된 도시 위치에 따라 턴 수와 돈 조정
+      if (spacePosition >= 1 && spacePosition <= 17) {
+        // 1~17 사이의 도시 선택 시
+        redPlayerMoney.textContent = +redPlayerMoney.textContent + 200000;
+        redPlayerRound.textContent = +redPlayerRound.textContent + 1;
       }
-    } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
 
-    // 입력된 도시 위치에 따라 턴 수와 돈 조정
-    if (spacePosition >= 1 && spacePosition <= 17) {
-      // 1~17 사이의 도시 선택 시
-      redPlayerMoney.textContent = +redPlayerMoney.textContent + 200000;
-      redPlayerRound.textContent = +redPlayerRound.textContent + 1;
-    };
-
-    // 플레이어 위치 업데이트
-    redPlayerPosition = spacePosition;
-    console.log("우주여행 Red");
-  }
-} else {
-  if (currentPosition === 18) {
-    let spacePosition;
-    do {
-      spacePosition = +prompt(
-        "🚙BLUE PLAYER\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
-      );
-      if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
-        alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
-      }
-    } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
-
-    // 입력된 도시 위치에 따라 턴 수와 돈 조정
-    if (spacePosition >= 1 && spacePosition <= 17) {
-      // 1~17 사이의 도시 선택 시
-      bluePlayerMoney.textContent = +bluePlayerMoney.textContent + 200000; // 돈 +20만원
-      bluePlayerRound.textContent = +bluePlayerRound.textContent + 1; // 턴 수 +1
+      // 플레이어 위치 업데이트
+      redPlayerPosition = spacePosition;
+      console.log("우주여행 Red");
     }
+  } else {
+    if (currentPosition === 18) {
+      let spacePosition;
+      do {
+        spacePosition = +prompt(
+          "🚙BLUE PLAYER\n어디든지 가고싶은 도시를 숫자로 입력하세요!! (출발부터 0~23)"
+        );
+        if (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition)) {
+          alert("가고싶은 도시를 0~23까지의 숫자로 선택하세요");
+        }
+      } while (spacePosition < 0 || spacePosition > 23 || isNaN(spacePosition));
 
-    // 플레이어 위치 업데이트
-    bluePlayerPosition = spacePosition;
-    console.log("우주여행 Blue");
+      // 입력된 도시 위치에 따라 턴 수와 돈 조정
+      if (spacePosition >= 1 && spacePosition <= 17) {
+        // 1~17 사이의 도시 선택 시
+        bluePlayerMoney.textContent = +bluePlayerMoney.textContent + 200000; // 돈 +20만원
+        bluePlayerRound.textContent = +bluePlayerRound.textContent + 1; // 턴 수 +1
+      }
+
+      // 플레이어 위치 업데이트
+      bluePlayerPosition = spacePosition;
+      console.log("우주여행 Blue");
+    }
   }
-}
-  
 
   console.log(`${player}의 이동 후 위치:`, currentPosition);
   console.log(arr[currentPosition]); //------------------------------------🐟
@@ -169,7 +205,9 @@ function updatePlayerPosition(player) {
   // console.log(targetDiv);
   const playerElement = document.createElement("div");
   playerElement.className = `player ${player}`; // red면 class="player redplayer"
-  targetDiv.appendChild(playerElement); // 새로운 위치에 플레이어 캐릭터 말 추가
+  setTimeout(function () {
+    targetDiv.appendChild(playerElement); // 새로운 위치에 플레이어 캐릭터 말 추가
+  }, 1200);
 
   // 플레이어의 턴에만 땅을 구매할지 묻도록 수정
   if (player === currentPlayer) {
@@ -180,158 +218,98 @@ function updatePlayerPosition(player) {
   }
 }
 
-
 function showDiceImg(diceResult) {
   if (($diceImg.style.backgroundImage = "none")) {
-    $diceImg.style.backgroundImage = "url(../board/img/dice.gif)";
+    $diceImg.style.backgroundImage = "url(/player/img/dice.gif)";
   }
 
   setTimeout(function () {
     $diceImg.style.backgroundImage = "none";
-  }, 1200);
+  }, 1000);
 
   setTimeout(function () {
     if (diceResult === 1) {
-      $diceImg.style.backgroundImage = "url(../board/img/1.png)";
+      $diceImg.style.backgroundImage = "url(/player/img/1.png)";
     } else if (diceResult === 2) {
-      $diceImg.style.backgroundImage = "url(../board/img/2.png)";
+      $diceImg.style.backgroundImage = "url(/player/img/2.png)";
     } else if (diceResult === 3) {
-      $diceImg.style.backgroundImage = "url(../board/img/3.png)";
+      $diceImg.style.backgroundImage = "url(/player/img/3.png)";
     } else if (diceResult === 4) {
-      $diceImg.style.backgroundImage = "url(../board/img/4.png)";
+      $diceImg.style.backgroundImage = "url(/player/img/4.png)";
     } else if (diceResult === 5) {
-      $diceImg.style.backgroundImage = "url(../board/img/5.png)";
+      $diceImg.style.backgroundImage = "url(/player/img/5.png)";
     } else if (diceResult === 6) {
-      $diceImg.style.backgroundImage = "url(../board/img/6.png)";
+      $diceImg.style.backgroundImage = "url(/player/img/6.png)";
     }
   }, 1300);
 
   setTimeout(function () {
     $diceImg.style.backgroundImage = "none";
-  }, 1500);
-}
-function showPlayerInfo() {
-
-  setTimeout(function () {
-    $diceImg.textContent = "";
   }, 2000);
 }
 
-// 주사위 버튼 클릭 이벤트
-$diceBtn.addEventListener("click", (event) => {
-  // 주사위 굴리기
-  const diceResult = rollDice(); // 주사위 결과 값 저장
-  console.log(`주사위 값: ${diceResult}`);
-
-    // 이벤트 전파 중지
-    event.stopPropagation();
-
-  // 현재 플레이어의 위치 업데이트 및 캐릭터 말 이동
-  movePlayer(currentPlayer, diceResult); // 현재 플레이어의 이동
-  updatePlayerPosition(currentPlayer); // 현재 플레이어의 위치 업데이트
-
-  checkGameOver();
-
-  // 플레이어 전환
-  currentPlayer = currentPlayer === "redPlayer" ? "bluePlayer" : "redPlayer"; // 플레이어 턴 전환
-
-  // 현재 플레이어 출력
-  const currentPlayerDisplay = document.getElementById("currentPlayerDisplay");
-  currentPlayerDisplay.textContent = ` ${currentPlayer}님의 차례입니다`;
-  console.log(`현재 플레이어: ${currentPlayer}`);
-
-  // 플레이어 말 이미지 설정
-  const playerTokenImg = document.getElementById("playerToken");
-  if (currentPlayer === "redPlayer") {
-    playerTokenImg.src = "../player/img/redPlayer.png"; // 빨간 말 이미지 경로 설정
-  } else {
-    playerTokenImg.src = "../player/img/bluePlayer.png"; // 파란 말 이미지 경로 설정
-  }
-
-});
-
-// console.log(arr);
-
-//땅에 대한 정보 객체로 정리한 것. 해당 번호는 셀의 id값과 동일함. 이걸 이용해야할 듯----
-const lands = {
-  1: { name: "타이베이", price: 50000, owner: null },
-  2: { name: "베이징", price: 80000, owner: null },
-  3: { name: "마닐라", price: 80000, owner: null },
-  4: { name: "제주", price: 200000, owner: null },
-  5: { name: "싱가포르", price: 100000, owner: null },
-  6: { name: "무인도", price: 0},
-  7: { name: "아테네", price: 140000, owner: null },
-  8: { name: "코펜하겐", price: 160000, owner: null },
-  9: { name: "스톡홀롬", price: 160000, owner: null },
-  10: { name: "베를린", price: 180000, owner: null },
-  11: { name: "오타와", price: 200000, owner: null },
-  12: { name: "사회복지기금 기부", price: 0},
-  13: { name: "부에노스아이레스", price: 220000, owner: null },
-  14: { name: "상파울루", price: 240000, owner: null },
-  15: { name: "시드니", price: 240000, owner: null },
-  16: { name: "부산", price: 500000, owner: null },
-  17: { name: "하와이", price: 260000, owner: null },
-  18: { name: "우주여행", price: 200000}, //이것도 돈이 있어야 할 수 있게 일단 해둠. 20만원!
-  19: { name: "도쿄", price: 300000, owner: null },
-  20: { name: "컬럼비아호", price: 450000, owner: null },
-  21: { name: "파리", price: 320000, owner: null },
-  22: { name: "뉴욕", price: 350000, owner: null },
-  23: { name: "서울", price: 1000000, owner: null },
-  24: { name: "출발", price: 0},
-};
 // 땅을 구매할지 여부를 묻는 함수 정의
 function askToBuyLand(player, position) {
-  const cell = arr[position];
-  if (cell.classList.contains("btn") && !cell.classList.contains("Special")) { // 땅인지 확인
-    const cellID = lands[position].name; 
-    const cellPrice = lands[position].price; 
+  setTimeout(function () {
+    const cell = arr[position];
+    if (cell.classList.contains("btn") && !cell.classList.contains("Special")) {
+      // 땅인지 확인
+      const cellID = lands[position].name;
+      const cellPrice = lands[position].price;
 
-    if (lands[position].owner === null) { // 땅의 소유주가 없는 경우에만 구매 확인 대화상자 띄우기
-      const buyConfirmation = confirm(`${player}님, ${cellID} 칸에 도착했습니다. ${cellPrice}원에 이 땅을 구매하시겠습니까?`);
+      if (lands[position].owner === null) {
+        // 땅의 소유주가 없는 경우에만 구매 확인 대화상자 띄우기
+        const buyConfirmation = confirm(
+          `${player}님, ${cellID} 칸에 도착했습니다. ${cellPrice}원에 이 땅을 구매하시겠습니까?`
+        );
 
-      if (buyConfirmation) {
-        // 구매 확인 시
-        if (player === "redPlayer") {
-          if (+redPlayerMoney.textContent >= cellPrice) {
-            redPlayerMoney.textContent = +redPlayerMoney.textContent - cellPrice;
-            // cell.classList.add(player); // 플레이어의 클래스를 땅에 추가하여 소유 표시
-            lands[position].owner = player; // 땅의 소유주 변경
-            alert(`${cellID} 칸을 구매하였습니다.`);
-            
+        if (buyConfirmation) {
+          // 구매 확인 시
+          if (player === "redPlayer") {
+            if (+redPlayerMoney.textContent >= cellPrice) {
+              redPlayerMoney.textContent =
+                +redPlayerMoney.textContent - cellPrice;
+              // cell.classList.add(player); // 플레이어의 클래스를 땅에 추가하여 소유 표시
+              lands[position].owner = player; // 땅의 소유주 변경
+              alert(`${cellID} 칸을 구매하였습니다.`);
+            } else {
+              alert("💸소지금이 부족합니다.💸");
+              return; // 구매 실패 시 함수 종료
+            }
           } else {
-            alert("💸소지금이 부족합니다.💸");
-            return; // 구매 실패 시 함수 종료
+            if (+bluePlayerMoney.textContent >= cellPrice) {
+              bluePlayerMoney.textContent =
+                +bluePlayerMoney.textContent - cellPrice;
+              // cell.classList.add(player); // 플레이어의 클래스를 땅에 추가하여 소유 표시
+              lands[position].owner = player; // 땅의 소유주 변경
+              alert(`${cellID} 칸을 구매하였습니다.`);
+              // 땅 구매후 아이콘만들기
+            } else {
+              alert("💸소지금이 부족합니다.💸");
+              return; // 구매 실패 시 함수 종료
+            }
           }
         } else {
-          if (+bluePlayerMoney.textContent >= cellPrice) {
-            bluePlayerMoney.textContent = +bluePlayerMoney.textContent - cellPrice;
-            // cell.classList.add(player); // 플레이어의 클래스를 땅에 추가하여 소유 표시
-            lands[position].owner = player; // 땅의 소유주 변경
-            alert(`${cellID} 칸을 구매하였습니다.`);
-            // 땅 구매후 아이콘만들기
-          } else {
-            alert("💸소지금이 부족합니다.💸");
-            return; // 구매 실패 시 함수 종료
-          }
+          // 구매 취소 시
+          alert("구매를 취소하였습니다.");
         }
       } else {
-        // 구매 취소 시
-        alert("구매를 취소하였습니다.");
+        // 이미 소유주가 있는 경우에는 구매 확인 대화상자 띄우지 않고 통행료 지불 함수를 실행
+        payToll(player, position);
       }
-    } else {
-      // 이미 소유주가 있는 경우에는 구매 확인 대화상자 띄우지 않고 통행료 지불 함수를 실행
-      payToll(player, position);
     }
-  }
+  }, 1500);
 }
 // 플레이어가 다른 플레이어의 땅에 들어갔을 때 통행료를 지불하는 함수 정의
 function payToll(player, position) {
   const cell = arr[position];
-  if (cell.classList.contains("btn") && !cell.classList.contains("Special")) { // 땅인지 확인
-    const landOwner = lands[position].owner; // 
-    const cellPrice = lands[position].price; // 
+  if (cell.classList.contains("btn") && !cell.classList.contains("Special")) {
+    // 땅인지 확인
+    const landOwner = lands[position].owner; //
+    const cellPrice = lands[position].price; //
 
-    if (landOwner !== null && landOwner !== player) { // 땅의 소유주가 있고, 현재 플레이어와 다를 경우
+    if (landOwner !== null && landOwner !== player) {
+      // 땅의 소유주가 있고, 현재 플레이어와 다를 경우
       const toll = cellPrice * 2; // 통행료는 땅의 가격의 두 배
 
       // 통행료 차감 및 지불
@@ -342,18 +320,21 @@ function payToll(player, position) {
         bluePlayerMoney.textContent = +bluePlayerMoney.textContent - toll;
         redPlayerMoney.textContent = +redPlayerMoney.textContent + toll;
       }
-      alert(`${player}님, ${landOwner}님의 땅에 들어가 💰통행료 ${toll}원💰을 지불하였습니다.`);
+      alert(
+        `${player}님, ${landOwner}님의 땅에 들어가 💰통행료 ${toll}원💰을 지불하였습니다.`
+      );
     }
   }
 }
-
 
 // 게임 종료 조건 확인 및 출력 함수
 function checkGameOver() {
   // 빨간 플레이어의 소지금 확인
   const redMoney = +redPlayerMoney.textContent;
   if (redMoney <= 0) {
-    alert("🚗RED PLAYER의 소지금이 0원 이하로 떨어졌습니다.\n🚙BLUE PLAYER가 승리했습니다!");
+    alert(
+      "🚗RED PLAYER의 소지금이 0원 이하로 떨어졌습니다.\n🚙BLUE PLAYER가 승리했습니다!"
+    );
     const playAgain = confirm("한 판 더 하시겠습니까?");
     if (playAgain) {
       resetGame();
@@ -368,7 +349,9 @@ function checkGameOver() {
   // 파란 플레이어의 소지금 확인
   const blueMoney = +bluePlayerMoney.textContent;
   if (blueMoney <= 0) {
-    alert("🚙BLUE PLAYER의 소지금이 0원 이하로 떨어졌습니다. \n🚗RED PLAYER가 승리했습니다!");
+    alert(
+      "🚙BLUE PLAYER의 소지금이 0원 이하로 떨어졌습니다. \n🚗RED PLAYER가 승리했습니다!"
+    );
     const playAgain = confirm("한 판 더 하시겠습니까?");
     if (playAgain) {
       resetGame();
@@ -377,9 +360,9 @@ function checkGameOver() {
       alert("게임을 종료합니다.");
       // 추가적인 종료 작업 수행
     }
-      // 주사위 클릭 이벤트 제거
-      removeDiceRollEventListener();
-   
+    // 주사위 클릭 이벤트 제거
+    removeDiceRollEventListener();
+
     return; // 게임 종료 후 더 이상 코드를 실행하지 않음
   }
 }
@@ -403,12 +386,47 @@ function resetGame() {
 
   // 현재 플레이어를 빨간 플레이어로 초기화
   currentPlayer = "redPlayer";
-  
+
   // 초기 플레이어 위치 업데이트
   updatePlayerPosition(currentPlayer);
 }
 
-  // 주사위 이벤트 제거 함수
+// 주사위 이벤트 제거 함수
 function removeDiceRollEventListener() {
   $diceBtn.removeEventListener("click", rollDiceHandler);
 }
+
+// 주사위 버튼 클릭 이벤트
+$diceBtn.addEventListener("click", (event) => {
+  // 주사위 굴리기
+  const diceResult = rollDice(); // 주사위 결과 값 저장
+  console.log(`주사위 값: ${diceResult}`);
+
+  // 이벤트 전파 중지
+  event.stopPropagation();
+
+  // 현재 플레이어의 위치 업데이트 및 캐릭터 말 이동
+  movePlayer(currentPlayer, diceResult); // 현재 플레이어의 이동
+
+  updatePlayerPosition(currentPlayer); // 현재 플레이어의 위치 업데이트
+
+  checkGameOver();
+
+  showDiceImg(diceResult);
+
+  // 플레이어 전환
+  currentPlayer = currentPlayer === "redPlayer" ? "bluePlayer" : "redPlayer"; // 플레이어 턴 전환
+
+  // 현재 플레이어 출력
+  const currentPlayerDisplay = document.getElementById("currentPlayerDisplay");
+  currentPlayerDisplay.textContent = ` ${currentPlayer}님의 차례입니다`;
+  console.log(`현재 플레이어: ${currentPlayer}`);
+
+  // 플레이어 말 이미지 설정
+  const playerTokenImg = document.getElementById("playerToken");
+  if (currentPlayer === "redPlayer") {
+    playerTokenImg.src = "../player/img/redPlayer.png"; // 빨간 말 이미지 경로 설정
+  } else {
+    playerTokenImg.src = "../player/img/bluePlayer.png"; // 파란 말 이미지 경로 설정
+  }
+});

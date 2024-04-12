@@ -104,6 +104,9 @@ section.dice .dice-image{
   border-radius: 20px;
   background: white;
   margin-top: 30px;
+  background-size: cover;
+  background-position: center;
+  /* background-image: url(/player/img/dice.gif); */
 }
 
 
