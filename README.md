@@ -1,8 +1,7 @@
 
 ## LUCKY DICE 🎲
 
-
-※MainPage
+### MainPage
 <br>
 <br>
 
