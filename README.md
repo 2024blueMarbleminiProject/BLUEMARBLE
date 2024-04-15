@@ -1,11 +1,13 @@
 
 ## LUCKY DICE 🎲
 
-### MainPage
+### MainPage<br>
+<br>
+https://chanhee7.github.io/
 <br>
 <br>
 
-![image](https://github.com/2024blueMarbleminiProject/BLUEMARBLE/assets/160578098/593f0f76-1b1b-4901-9d44-5f8853a28351)
+![GIFMaker_me](https://github.com/2024blueMarbleminiProject/BLUEMARBLE/assets/156823236/0539574e-b724-493b-aefd-6b16f1b622de)
 
 <br>
 <br>
@@ -13,7 +15,7 @@
 <br>
 
 ## 📢 서비스 개요
-- 브루마블 게임은 JavaScript로 제작된 보드 게임입니다. 
+- 부루마불 게임은 JavaScript로 제작된 보드 게임입니다. 
 - 2인의 플레이어가 경쟁하여 승리하는 재미있는 경험을 제공합니다. 
 - 언제 어디서든 무료할 때 간편한 사용자 인터페이스를 통해 쉽게 플레이해보세요!!
 <br>
@@ -24,8 +26,8 @@
 ## 👋 팀원
 
 - 👩‍💻 이찬희 	https://github.com/chanhee7 	<br>
+- 👨‍💻 전혜린		https://github.com/hyerin11	<br>
 - 👨‍💻 정재한		https://github.com/junglimit 	<br>
-- 👨‍💻 정혜린		https://github.com/hyerin11	<br>
 - 👩‍💻 주우빈		https://github.com/binwoojoo	<br>
 <br>
 <br>
@@ -48,6 +50,7 @@
 🎯 주요 기능 및 로직 소개
 <br>
 <br>
+![image](https://github.com/2024blueMarbleminiProject/BLUEMARBLE/assets/160578098/593f0f76-1b1b-4901-9d44-5f8853a28351)
 
 - 주요 기능<br>
 위 화면이 게임이 전체적으로 진행되는 화면이고 레드플레이어와 블루플레이어 두명이서 게임을 진행하게됩니다
