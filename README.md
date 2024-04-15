@@ -6,7 +6,8 @@
 <br>
 <br>
 
-![KakaoTalk_20240412_170416339](https://github.com/2024blueMarbleminiProject/BLUEMARBLE/assets/161430796/e6bbe470-5727-4e36-9bc6-8756f9820fa7)
+![image](https://github.com/2024blueMarbleminiProject/BLUEMARBLE/assets/160578098/593f0f76-1b1b-4901-9d44-5f8853a28351)
+
 <br>
 <br>
 <br>
