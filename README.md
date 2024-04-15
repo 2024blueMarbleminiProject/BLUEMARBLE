@@ -5,7 +5,7 @@
 <br>
 <br>
 
-![image](https://github.com/2024blueMarbleminiProject/BLUEMARBLE/assets/160578098/593f0f76-1b1b-4901-9d44-5f8853a28351)
+![GIFMaker_me](https://github.com/2024blueMarbleminiProject/BLUEMARBLE/assets/156823236/0539574e-b724-493b-aefd-6b16f1b622de)
 
 <br>
 <br>
@@ -48,6 +48,7 @@
 🎯 주요 기능 및 로직 소개
 <br>
 <br>
+![image](https://github.com/2024blueMarbleminiProject/BLUEMARBLE/assets/160578098/593f0f76-1b1b-4901-9d44-5f8853a28351)
 
 - 주요 기능<br>
 위 화면이 게임이 전체적으로 진행되는 화면이고 레드플레이어와 블루플레이어 두명이서 게임을 진행하게됩니다
