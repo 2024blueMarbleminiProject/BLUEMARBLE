@@ -26,8 +26,8 @@ https://chanhee7.github.io/
 ## 👋 팀원
 
 - 👩‍💻 이찬희 	https://github.com/chanhee7 	<br>
+- 👨‍💻 전혜린		https://github.com/hyerin11	<br>
 - 👨‍💻 정재한		https://github.com/junglimit 	<br>
-- 👨‍💻 정혜린		https://github.com/hyerin11	<br>
 - 👩‍💻 주우빈		https://github.com/binwoojoo	<br>
 <br>
 <br>
