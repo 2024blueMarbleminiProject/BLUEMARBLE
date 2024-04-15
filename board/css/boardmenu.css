@@ -28,7 +28,6 @@ body {
 
 /* 메뉴판 css */
 #title {
-  /* border: 10px solid #000; */
   height: 800px;
   width: 350px;
   margin-top: 20px;
@@ -115,7 +114,6 @@ section.dice .dice-image{
   margin-top: 30px;
   background-size: cover;
   background-position: center;
-  /* background-image: url(/board/img/dice.gif); */
 }
 
 

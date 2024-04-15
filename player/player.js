@@ -1,4 +1,4 @@
-// 보드판 배열에 순서대로 저장하기
+//<================================ 변수 선언 영역 =========================================>//
 const arr = []; // 보드판 순서대로 배열 저장
 let currentPosition = 0; // 캐릭터 말의 초기 위치 (인덱스)
 const $diceBtn = document.querySelector(".diceBtn");
@@ -9,7 +9,7 @@ let currentPlayer = "redPlayer"; // 초기 턴은 빨간 플레이어로 설정
 let redPlayerPosition = 0; // 빨간 플레이어의 초기 위치
 let bluePlayerPosition = 0; // 파란 플레이어의 초기 위치
 
-//===========돈과 관련된 변수===============//
+// 돈과 관련된 변수
 let redPlayerMoney = document.getElementById("A-money");
 let bluePlayerMoney = document.getElementById("B-money");
 let redPlayerRound = document.getElementById("A-round");
@@ -43,7 +43,7 @@ for (const id of middle2Elements) {
   }
 }
 
-//땅에 대한 정보 객체로 정리한 것. 해당 번호는 셀의 id값과 동일함. 이걸 이용해야할 듯----
+// 땅에 대한 정보 객체로 정리한 것. 해당 번호는 셀의 id값과 동일함. 이걸 이용해야할 듯----
 const lands = {
   1: { name: "타이베이", price: 50000, owner: null },
   2: { name: "베이징", price: 80000, owner: null },
@@ -70,6 +70,10 @@ const lands = {
   23: { name: "서울", price: 1000000, owner: null },
   24: { name: "출발", price: 0 },
 };
+
+
+
+//<======================================= 함수 정의 영역 ===========================================>//
 
 // 주사위를 굴리는 함수 정의
 function rollDice() {
@@ -261,9 +265,7 @@ function addLandmark(player, position) {
 
 function showDiceImg(diceResult) {
   if (($diceImg.style.backgroundImage = "none")) {
-    $diceImg.style.backgroundImage =
-      // "url(https://upload3.inven.co.kr/upload/2022/01/28/bbs/i016280274048.gif)";
-      "url('../board/img/dice.gif')";
+    $diceImg.style.backgroundImage = "url('../board/img/dice.gif')";
   }
 
   setTimeout(function () {
@@ -318,7 +320,6 @@ function askToBuyLand(player, position) {
             if (+redPlayerMoney.textContent >= cellPrice) {
               redPlayerMoney.textContent =
                 +redPlayerMoney.textContent - cellPrice;
-              // cell.classList.add(player); // 플레이어의 클래스를 땅에 추가하여 소유 표시
               lands[position].owner = player; // 땅의 소유주 변경
 
               // 랜드마크 이미지 요소 생성
@@ -338,7 +339,6 @@ function askToBuyLand(player, position) {
             if (+bluePlayerMoney.textContent >= cellPrice) {
               bluePlayerMoney.textContent =
                 +bluePlayerMoney.textContent - cellPrice;
-              // cell.classList.add(player); // 플레이어의 클래스를 땅에 추가하여 소유 표시
               lands[position].owner = player; // 땅의 소유주 변경
 
               // 랜드마크 이미지 요소 생성
@@ -406,7 +406,7 @@ function checkGameOver() {
         "🚗RED PLAYER의 소지금이 0원 이하로 떨어졌습니다.\n🚙BLUE PLAYER가 승리했습니다!"
       );
       alert("게임을 종료합니다.");
-      const gameOverBox = document.querySelector('.gameoverbox');
+      const gameOverBox = document.querySelector(".gameoverbox");
       gameOverBox.style.zIndex = 9999;
       gameOverBox.style.opacity = 0.8;
     }, 2000);
@@ -421,43 +421,16 @@ function checkGameOver() {
         "🚙BLUE PLAYER의 소지금이 0원 이하로 떨어졌습니다. \n🚗RED PLAYER가 승리했습니다!"
       );
       alert("게임을 종료합니다.");
-      const gameOverBox = document.querySelector('.gameoverbox');
+      const gameOverBox = document.querySelector(".gameoverbox");
       gameOverBox.style.zIndex = 9999;
       gameOverBox.style.opacity = 0.8;
     }, 2000);
-    
+
     return; // 게임 종료 후 더 이상 코드를 실행하지 않음
   }
 }
 
-// 리셋게임 함수
-// function resetGame() {
-//   // 플레이어 소지금 초기화
-//   redPlayerMoney.textContent = 1000000;
-//   bluePlayerMoney.textContent = 1000000;
-
-//   // 플레이어 위치 초기화
-//   redPlayerPosition = 0;
-//   bluePlayerPosition = 0;
-
-//   // 보드판 상태 초기화
-//   for (const position in lands) {
-//     if (lands.hasOwnProperty(position)) {
-//       lands[position].owner = null; // 각 땅의 소유주를 null로 설정
-//     }
-//   }
-
-//   // 현재 플레이어를 빨간 플레이어로 초기화
-//   currentPlayer = "redPlayer";
-
-//   // 초기 플레이어 위치 업데이트
-//   updatePlayerPosition(currentPlayer);
-// }
-
-// // 주사위 이벤트 제거 함수
-// function removeDiceRollEventListener() {
-//   $diceBtn.removeEventListener("click", rollDiceHandler);
-// }
+//<================================ 이벤트 실행 영역 ================================>//
 
 // 주사위 버튼 클릭 이벤트
 $diceBtn.addEventListener("click", (event) => {

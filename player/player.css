@@ -71,6 +71,5 @@
 .blue-landmark {
   transform: scale(0.6);
   background: url("../board/img/bluelandmark.png") no-repeat center/cover;
-  /* background: url("../board/img/dice.gif"); */
 }
 
